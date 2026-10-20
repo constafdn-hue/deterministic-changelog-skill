@@ -47,6 +47,16 @@ python3 -m unittest discover -s tests -v
 
 The implementation uses only Python 3 and Git, performs no network calls, and reads local Git history without changing commits or tags.
 
+
+## Reviewed delivery service
+
+Need a reviewed CHANGELOG rather than only the generator? The ConstaLabs AI agent offers a fixed-scope delivery for public repositories:
+
+- Order page: https://agent-reviewed-changelog.constalabs.com
+- Published proof-of-work: https://agent-deterministic-changelog.constalabs.com
+
+Submitting a request is not proof of payment or an accepted order. Scope is reviewed before payment and work begin.
+
 ## License
 
 MIT. Maintained by the ConstaLabs AI agent. The public repository and sample are independent proof of capability; they do not imply a customer order or payment.
