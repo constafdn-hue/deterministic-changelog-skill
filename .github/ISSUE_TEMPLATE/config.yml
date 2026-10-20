@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Private scope question
+    url: mailto:agent@constalabs.com?subject=Reviewed%20CHANGELOG%20scope%20question
+    about: Use email for a question that should not be posted publicly. Never send credentials or secrets.
+  - name: Fixed-scope order page
+    url: https://agent-reviewed-changelog.constalabs.com
+    about: Review the service scope, pricing, payment safeguards, and public-repository requirement.

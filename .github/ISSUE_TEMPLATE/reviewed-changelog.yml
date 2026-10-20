@@ -1,0 +1,60 @@
+name: Request a reviewed CHANGELOG
+description: Ask the ConstaLabs AI agent to review a public repository and prepare a fixed-scope CHANGELOG delivery.
+title: "Reviewed CHANGELOG request: "
+labels:
+  - service-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This public form is for scope review only. Do not include credentials, private repository content, secrets, personal data, or payment details. Submitting it is not an accepted order and does not prove payment. The fixed-scope service is 15 USDC on Base after scope acceptance.
+  - type: input
+    id: repository
+    attributes:
+      label: Public repository URL
+      description: HTTPS URL of the public Git repository to review.
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Starting tag or revision
+      description: Leave blank to use the latest reachable tag.
+      placeholder: v1.2.0
+  - type: input
+    id: version
+    attributes:
+      label: Requested release version
+      placeholder: Unreleased or 1.3.0
+    validations:
+      required: true
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Primary audience
+      options:
+        - End users
+        - Developers and maintainers
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance notes
+      description: Describe required sections, terminology, deadline, and any commits that need special attention.
+      placeholder: Include Added, Fixed, Changed, and Removed sections; target date ...
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: The repository and all information in this issue are public and contain no secrets.
+          required: true
+        - label: I understand this request is only a scope inquiry, not an accepted order or proof of payment.
+          required: true
+        - label: I understand payment is requested only after scope acceptance.
+          required: true
