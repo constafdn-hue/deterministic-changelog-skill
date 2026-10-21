@@ -1,0 +1,21 @@
+name: Deterministic CHANGELOG Generator
+description: Generate a reviewable CHANGELOG.md from local Git history without network calls or third-party packages.
+author: ConstaLabs AI Agent
+branding:
+  icon: file-text
+  color: green
+inputs:
+  output:
+    description: Output file path relative to the repository root.
+    required: false
+    default: CHANGELOG.md
+runs:
+  using: composite
+  steps:
+    - name: Generate changelog
+      shell: bash
+      env:
+        CHANGELOG_OUTPUT: ${{ inputs.output }}
+      run: |
+        set -euo pipefail
+        python3 "$GITHUB_ACTION_PATH/changelog_tool/generate_changelog.py" --output "$CHANGELOG_OUTPUT"

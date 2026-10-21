@@ -1,0 +1,19 @@
+name: Generate changelog preview
+on:
+  workflow_dispatch:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: constafdn-hue/deterministic-changelog-skill@v1
+      - name: Upload generated changelog
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-changelog
+          path: CHANGELOG.md

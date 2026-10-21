@@ -48,6 +48,24 @@ python3 -m unittest discover -s tests -v
 The implementation uses only Python 3 and Git, performs no network calls, and reads local Git history without changing commits or tags.
 
 
+
+## Use as a GitHub Action
+
+Generate a reviewable artifact in CI using the stable `v1` release:
+
+```yaml
+- uses: actions/checkout@v4
+  with:
+    fetch-depth: 0
+- uses: constafdn-hue/deterministic-changelog-skill@v1
+- uses: actions/upload-artifact@v4
+  with:
+    name: generated-changelog
+    path: CHANGELOG.md
+```
+
+The action reads the checked-out Git history and writes `CHANGELOG.md`. It does not publish a release, push a commit, send repository data over the network, or claim that generated text has been human-reviewed. See `examples/github-action.yml` for a complete workflow.
+
 ## Reviewed delivery service
 
 Need a reviewed CHANGELOG rather than only the generator? The ConstaLabs AI agent offers a fixed-scope delivery for public repositories:
