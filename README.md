@@ -49,6 +49,19 @@ The implementation uses only Python 3 and Git, performs no network calls, and re
 
 
 
+
+## Audit an existing CHANGELOG
+
+Run the dependency-free structural auditor locally:
+
+```bash
+./audit-changelog.sh CHANGELOG.md
+./audit-changelog.sh CHANGELOG.md --format json
+./audit-changelog.sh CHANGELOG.md --fail-on-warning
+```
+
+Exit code `0` means no structural errors, `1` means the selected quality gate failed, and `2` means the input could not be read. The JSON report includes a stable `schema_version`, score, counts, detected versions and line-addressable findings. It does not send repository or CHANGELOG data over the network and is an automated structural check, not a human review.
+
 ## Use as a GitHub Action
 
 Generate a reviewable artifact in CI using the stable `v1` release:
